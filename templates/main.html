@@ -1,0 +1,40 @@
+{% load static %}
+
+    <div class="main">
+        <h2>Darf <span id="name">{{ name }}</span> das?</h2>
+        <h1 id="sentence">{{ sentence }}</h1>
+        <div class="centre">
+            <div id="button-cont">
+                <button id="button-yes" class='button' onclick="SendResult(true);">Ja, das ist moralisch vertretbar.</button>
+                <button id="button-no" class='button' onclick="SendResult(false);">Nein, das ist unmoralisch.</button>
+            </div>
+        </div>
+        <footer>
+            <h3>Es gibt 4560 verschiedene Fragen, mach so viele du willst.</h3><br>
+            <div class="third" style="text-align: left">Dank an Nicholas Lamprecht</div>
+            <div class="third">Copyright Christoph Royer 2019</div>
+            <div class="third" style="text-align: right"><a href="about/">Über</a></div>
+        </footer>
+    </div>
+
+    <script>
+        function SendResult(moral){
+            $.ajax({
+                url: '',
+                data:{
+                    sentence: '{{ sentence }}',
+                    prediction: '{{ prediction }}',
+                    reaction: '{{ reaction }}',
+                    relation: '{{ relation }}',
+                    action: '{{ action }}',
+                    person1: '{{ person1 }}',
+                    person2: '{{ person2 }}',
+                    moral: JSON.stringify(moral),
+                },
+                method: 'GET',
+                success:function(rs){
+                    $('body').html(rs);
+                }
+            })
+        }
+    </script>

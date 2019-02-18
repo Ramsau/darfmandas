@@ -1,0 +1,14 @@
+<div class="main">
+    <h1 id="sentence">{{ sentence }}</h1>
+    <div class="centre">
+        <h3>Du sagst: {% if moral %}Das ist moralisch.{% else %}Das ist nicht moralisch.{% endif %}</h3>
+        <h3>Roboter-Angela sagt: {{ prediction }}</h3>
+    </div>
+    <button style="position: static; right:0; bottom:0;" onclick='location.href="/darfmandas/"'>Nächste Frage&#8680;</button>
+    <footer>
+        <h3>Es gibt 4560 verschiedene Fragen, mach so viele du willst.</h3><br>
+        <div class="third" style="text-align: left">Dank an Nicholas Lamprecht</div>
+        <div class="third">Copyright Christoph Royer 2019</div>
+        <div class="third" style="text-align: right"><a href="about/">Über</a></div>
+    </footer>
+</div>
